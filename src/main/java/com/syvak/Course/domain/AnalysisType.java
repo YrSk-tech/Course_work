@@ -7,42 +7,50 @@ import javax.persistence.*;
 public class AnalysisType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "name")
-    private String name_analysis_type;
+    @Column(name = "analysis_type_id")
+    private Integer analysisTypeId;
+    @Column(name = "type")
+    private String type;
+    @OneToOne(mappedBy = "analysis")
+    private Analysis analysis;
+    @OneToOne(mappedBy = "analysis_type")
+    private Labolatory labolatory;
 
-    public AnalysisType(Integer id, String name) {
-        this.id = id;
-        this.name_analysis_type = name;
+    public AnalysisType(Integer analysisTypeId, String type) {
+        this.analysisTypeId = analysisTypeId;
+        this.type = type;
     }
-    public AnalysisType(String name) {
-        this(null, name);
+
+    public AnalysisType(String type) {
+        this.type = type;
     }
 
     public AnalysisType() {
-
-    }
-    public Integer getId() {
-        return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getAnalysisTypeId() {
+        return analysisTypeId;
     }
 
-    public String getName_analysis_type() {
-        return name_analysis_type;
+    public void setAnalysisTypeId(Integer analysisTypeId) {
+        this.analysisTypeId = analysisTypeId;
     }
 
-    public void setName_analysis_type(String name_analysis_type) {
-        this.name_analysis_type = name_analysis_type;
+    public String getType() {
+        return type;
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return "Analysis Type{" +
-                "id=" + id +
-                ", name=" + name_analysis_type +
+        return "AnalysisType{" +
+                "analysisTypeId=" + analysisTypeId +
+                ", type='" + type + '\'' +
+                ", analysis=" + analysis +
+                ", labolatory=" + labolatory +
                 '}';
     }
 }

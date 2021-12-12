@@ -9,14 +9,14 @@ public class Clinic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "clinic_id")
-    private Integer clinic_id;
+    private Integer clinicId;
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "clinic")
     private Set<Labolatory> labolatory;
 
-    public Clinic(Integer clinic_id, String name, Set<Labolatory> labolatory) {
-        this.clinic_id = clinic_id;
+    public Clinic(Integer clinicId, String name, Set<Labolatory> labolatory) {
+        this.clinicId = clinicId;
         this.name = name;
         this.labolatory = labolatory;
     }
@@ -31,8 +31,8 @@ public class Clinic {
     }
 
 
-    public Integer getClinic_id() {
-        return clinic_id;
+    public Integer getClinicId() {
+        return clinicId;
     }
 
 
@@ -47,7 +47,7 @@ public class Clinic {
     @Override
     public String toString() {
         return "Clinic{" +
-                "clinic_id=" + clinic_id +
+                "clinic_id=" + clinicId +
                 ", name='" + name + '\'' +
                 ", labolatory=" + labolatory +
                 '}';

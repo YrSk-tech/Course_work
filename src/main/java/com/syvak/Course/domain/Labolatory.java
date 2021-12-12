@@ -14,16 +14,25 @@ public class Labolatory {
     @ManyToOne
     @JoinColumn(name="clinic_id", nullable=false)
     private Clinic clinic;
+    @OneToOne(mappedBy = "labolatory")
+    private Analysis analysis;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "analysis_type_id", referencedColumnName = "analysis_type_id")
+    private AnalysisType analysisType;
 
-    public Labolatory(Integer labolatoryId, Integer labolatoryNumber, Clinic clinic) {
+    public Labolatory(Integer labolatoryId, Integer labolatoryNumber, Clinic clinic, Analysis analysis, AnalysisType analysisType) {
         this.labolatoryId = labolatoryId;
         this.labolatoryNumber = labolatoryNumber;
         this.clinic = clinic;
+        this.analysis = analysis;
+        this.analysisType = analysisType;
     }
 
-    public Labolatory(Integer labolatoryNumber, Clinic clinic) {
+    public Labolatory(Integer labolatoryNumber, Clinic clinic, Analysis analysis, AnalysisType analysisType) {
         this.labolatoryNumber = labolatoryNumber;
         this.clinic = clinic;
+        this.analysis = analysis;
+        this.analysisType = analysisType;
     }
 
     public Integer getLabolatoryId() {
@@ -50,12 +59,26 @@ public class Labolatory {
         this.clinic = clinic;
     }
 
+    public Analysis getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(Analysis analysis) {
+        this.analysis = analysis;
+    }
+
+    public Labolatory(AnalysisType analysisType) {
+        this.analysisType = analysisType;
+    }
+
     @Override
     public String toString() {
         return "Labolatory{" +
                 "labolatoryId=" + labolatoryId +
-                ", labolatory Number=" + labolatoryNumber +
+                ", labolatoryNumber=" + labolatoryNumber +
                 ", clinic=" + clinic +
+                ", analysis=" + analysis +
+                ", analysisType=" + analysisType +
                 '}';
     }
 }

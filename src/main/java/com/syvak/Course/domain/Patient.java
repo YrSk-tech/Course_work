@@ -18,12 +18,22 @@ public class Patient {
     @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Diagnosis diagnosis;
+    @OneToOne(mappedBy = "patient")
+    private Analysis analysis;
 
-    public Patient(Integer patientSsnId, String name, String surname, Doctor doctor) {
+    public Patient(Integer patientSsnId, String name, String surname, Doctor doctor, Diagnosis diagnosis) {
         this.patientSsnId = patientSsnId;
         this.name = name;
         this.surname = surname;
         this.doctor = doctor;
+        this.diagnosis = diagnosis;
+    }
+
+    public Patient(String name, String surname, Doctor doctor, Diagnosis diagnosis) {
+        this.name = name;
+        this.surname = surname;
+        this.doctor = doctor;
+        this.diagnosis = diagnosis;
     }
 
     public Patient() {
@@ -61,13 +71,22 @@ public class Patient {
         this.doctor = doctor;
     }
 
+    public Diagnosis getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(Diagnosis diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
     @Override
     public String toString() {
         return "Patient{" +
-                "patient ssn =" + patientSsnId +
+                "patientSsnId=" + patientSsnId +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", doctor=" + doctor +
+                ", diagnosis=" + diagnosis +
                 '}';
     }
 }
