@@ -19,8 +19,8 @@ public class DiagnosisService implements AbstractService<Diagnosis, Integer> {
     }
 
     @Override
-    public Diagnosis getById(Integer id) {
-        return diagnosisRepository.getOne(id);
+    public Diagnosis getById(Integer diagnosisId) {
+        return diagnosisRepository.getOne(diagnosisId);
     }
 
     @Override
@@ -29,8 +29,8 @@ public class DiagnosisService implements AbstractService<Diagnosis, Integer> {
     }
 
     @Override
-    public Diagnosis update(Integer id, Diagnosis diagnosis) {
-        if (diagnosisRepository.findById(id).isPresent()) {
+    public Diagnosis update(Integer diagnosisId, Diagnosis diagnosis) {
+        if (diagnosisRepository.findById(diagnosisId).isPresent()) {
             return diagnosisRepository.save(diagnosis);
         } else {
             return null;
@@ -38,9 +38,9 @@ public class DiagnosisService implements AbstractService<Diagnosis, Integer> {
     }
 
     @Override
-    public void deleteById(Integer id) {
-        if (diagnosisRepository.findById(id).isPresent()) {
-            diagnosisRepository.deleteById(id);
+    public void deleteById(Integer diagnosisId) {
+        if (diagnosisRepository.findById(diagnosisId).isPresent()) {
+            diagnosisRepository.deleteById(diagnosisId);
         }
     }
 }

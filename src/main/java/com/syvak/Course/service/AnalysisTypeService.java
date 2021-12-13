@@ -21,8 +21,8 @@ public class AnalysisTypeService implements AbstractService<AnalysisType, Intege
     }
 
     @Override
-    public AnalysisType getById(Integer id) {
-        return analysisTypeRepository.getOne(id);
+    public AnalysisType getById(Integer analysisTypeId) {
+        return analysisTypeRepository.getOne(analysisTypeId);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class AnalysisTypeService implements AbstractService<AnalysisType, Intege
     }
 
     @Override
-    public AnalysisType update(Integer id, AnalysisType analysisType) {
-        if (analysisTypeRepository.findById(id).isPresent()) {
+    public AnalysisType update(Integer analysisTypeId, AnalysisType analysisType) {
+        if (analysisTypeRepository.findById(analysisTypeId).isPresent()) {
             return analysisTypeRepository.save(analysisType);
         } else {
             return null;
@@ -40,9 +40,9 @@ public class AnalysisTypeService implements AbstractService<AnalysisType, Intege
     }
 
     @Override
-    public void deleteById(Integer id) {
-        if (analysisTypeRepository.findById(id).isPresent()) {
-            analysisTypeRepository.deleteById(id);
+    public void deleteById(Integer analysisTypeId) {
+        if (analysisTypeRepository.findById(analysisTypeId).isPresent()) {
+            analysisTypeRepository.deleteById(analysisTypeId);
         }
     }
 }

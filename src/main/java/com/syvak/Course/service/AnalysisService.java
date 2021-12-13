@@ -20,8 +20,8 @@ public class AnalysisService implements AbstractService<Analysis, Integer> {
     }
 
     @Override
-    public Analysis getById(Integer id) {
-        return analysisRepository.getOne(id);
+    public Analysis getById(Integer analysisId) {
+        return analysisRepository.getOne(analysisId);
     }
 
     @Override
@@ -30,8 +30,8 @@ public class AnalysisService implements AbstractService<Analysis, Integer> {
     }
 
     @Override
-    public Analysis update(Integer id, Analysis analysis) {
-        if (analysisRepository.findById(id).isPresent()) {
+    public Analysis update(Integer analysisId, Analysis analysis) {
+        if (analysisRepository.findById(analysisId).isPresent()) {
             return analysisRepository.save(analysis);
         } else {
             return null;
@@ -39,9 +39,9 @@ public class AnalysisService implements AbstractService<Analysis, Integer> {
     }
 
     @Override
-    public void deleteById(Integer id) {
-        if (analysisRepository.findById(id).isPresent()) {
-            analysisRepository.deleteById(id);
+    public void deleteById(Integer analysisId) {
+        if (analysisRepository.findById(analysisId).isPresent()) {
+            analysisRepository.deleteById(analysisId);
         }
     }
 }

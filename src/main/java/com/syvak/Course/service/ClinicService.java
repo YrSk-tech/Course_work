@@ -19,8 +19,8 @@ public class ClinicService implements AbstractService<Clinic, Integer> {
     }
 
     @Override
-    public Clinic getById(Integer id) {
-        return clinicRepository.getOne(id);
+    public Clinic getById(Integer clinicId) {
+        return clinicRepository.getOne(clinicId);
     }
 
     @Override
@@ -29,8 +29,8 @@ public class ClinicService implements AbstractService<Clinic, Integer> {
     }
 
     @Override
-    public Clinic update(Integer id, Clinic clinic) {
-        if (clinicRepository.findById(id).isPresent()) {
+    public Clinic update(Integer clinicId, Clinic clinic) {
+        if (clinicRepository.findById(clinicId).isPresent()) {
             return clinicRepository.save(clinic);
         } else {
             return null;
@@ -38,9 +38,9 @@ public class ClinicService implements AbstractService<Clinic, Integer> {
     }
 
     @Override
-    public void deleteById(Integer id) {
-        if (clinicRepository.findById(id).isPresent()) {
-            clinicRepository.deleteById(id);
+    public void deleteById(Integer clinicId) {
+        if (clinicRepository.findById(clinicId).isPresent()) {
+            clinicRepository.deleteById(clinicId);
         }
     }
 }

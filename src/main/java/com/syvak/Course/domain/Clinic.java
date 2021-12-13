@@ -30,6 +30,17 @@ public class Clinic {
     public Clinic() {
     }
 
+    public void setClinicId(Integer clinicId) {
+        this.clinicId = clinicId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLabolatory(Set<Labolatory> labolatory) {
+        this.labolatory = labolatory;
+    }
 
     public Integer getClinicId() {
         return clinicId;

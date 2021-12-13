@@ -1,6 +1,7 @@
 package com.syvak.Course.domain;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "analysis")
@@ -16,7 +17,7 @@ public class Analysis {
     @JoinColumn(name = "analysis_type_id", referencedColumnName = "analysis_type_id")
     private  AnalysisType analysisType;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "patient_id", referencedColumnName = "patient_id")
+    @JoinColumn(name = "patient_ssn", referencedColumnName = "patient_ssn")
     private Patient patient;
 
     public Analysis(Integer analysisId, Labolatory labolatory, AnalysisType analysisType, Patient patient) {
@@ -62,6 +63,14 @@ public class Analysis {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAnalysisId(), getLabolatory(), getAnalysisType(), getPatient());
     }
 
     @Override

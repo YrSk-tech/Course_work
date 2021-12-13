@@ -19,8 +19,8 @@ public class LabolatoryService implements AbstractService<Labolatory, Integer> {
     }
 
     @Override
-    public Labolatory getById(Integer id) {
-        return labolatoryRepository.getOne(id);
+    public Labolatory getById(Integer labolatoryId) {
+        return labolatoryRepository.getOne(labolatoryId);
     }
 
     @Override
@@ -29,8 +29,8 @@ public class LabolatoryService implements AbstractService<Labolatory, Integer> {
     }
 
     @Override
-    public Labolatory update(Integer id, Labolatory labolatory) {
-        if (labolatoryRepository.findById(id).isPresent()) {
+    public Labolatory update(Integer labolatoryId, Labolatory labolatory) {
+        if (labolatoryRepository.findById(labolatoryId).isPresent()) {
             return labolatoryRepository.save(labolatory);
         } else {
             return null;
@@ -38,9 +38,9 @@ public class LabolatoryService implements AbstractService<Labolatory, Integer> {
     }
 
     @Override
-    public void deleteById(Integer id) {
-        if (labolatoryRepository.findById(id).isPresent()) {
-            labolatoryRepository.deleteById(id);
+    public void deleteById(Integer labolatoryId) {
+        if (labolatoryRepository.findById(labolatoryId).isPresent()) {
+            labolatoryRepository.deleteById(labolatoryId);
         }
     }
 }

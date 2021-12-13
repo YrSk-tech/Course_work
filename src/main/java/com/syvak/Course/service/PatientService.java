@@ -18,8 +18,8 @@ public class PatientService implements AbstractService<Patient, Integer> {
     }
 
     @Override
-    public Patient getById(Integer id) {
-        return patientRepository.getOne(id);
+    public Patient getById(Integer patientSsnId) {
+        return patientRepository.getOne(patientSsnId);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class PatientService implements AbstractService<Patient, Integer> {
     }
 
     @Override
-    public Patient update(Integer id, Patient patient) {
-        if (patientRepository.findById(id).isPresent()) {
+    public Patient update(Integer patientSsnId, Patient patient) {
+        if (patientRepository.findById(patientSsnId).isPresent()) {
             return patientRepository.save(patient);
         } else {
             return null;
@@ -37,9 +37,9 @@ public class PatientService implements AbstractService<Patient, Integer> {
     }
 
     @Override
-    public void deleteById(Integer id) {
-        if (patientRepository.findById(id).isPresent()) {
-            patientRepository.deleteById(id);
+    public void deleteById(Integer patientSsnId) {
+        if (patientRepository.findById(patientSsnId).isPresent()) {
+            patientRepository.deleteById(patientSsnId);
         }
     }
 }

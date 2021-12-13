@@ -23,9 +23,9 @@ public class Diagnosis {
         this.patient = patient;
     }
 
-    public Diagnosis(String patientAnalysis, Patient patient) {
+    public Diagnosis(Integer diagnosisId, String patientAnalysis) {
+        this.diagnosisId = diagnosisId;
         this.patientAnalysis = patientAnalysis;
-        this.patient = patient;
     }
 
     public Diagnosis() {

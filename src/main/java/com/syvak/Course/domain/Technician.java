@@ -1,7 +1,6 @@
 package com.syvak.Course.domain;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "technician")
@@ -16,19 +15,19 @@ public class Technician {
     private String surname;
     @ManyToOne
     @JoinColumn(name="labolatory_id", nullable=false)
-    private Set<Labolatory> Labolatory;
+    private Labolatory labolatory;
 
-    public Technician(Integer technicianId, String name, String surname, Set<com.syvak.Course.domain.Labolatory> labolatory) {
+    public Technician(Integer technicianId, String name, String surname, Labolatory labolatory) {
         this.technicianId = technicianId;
         this.name = name;
         this.surname = surname;
-        Labolatory = labolatory;
+        labolatory = labolatory;
     }
 
-    public Technician(String name, String surname, Set<com.syvak.Course.domain.Labolatory> labolatory) {
+    public Technician(String name, String surname, Labolatory labolatory) {
         this.name = name;
         this.surname = surname;
-        Labolatory = labolatory;
+        labolatory = labolatory;
     }
 
     public Technician() {
@@ -58,12 +57,12 @@ public class Technician {
         this.surname = surname;
     }
 
-    public Set<com.syvak.Course.domain.Labolatory> getLabolatory() {
-        return Labolatory;
+    public Labolatory getLabolatory() {
+        return labolatory;
     }
 
-    public void setLabolatory(Set<com.syvak.Course.domain.Labolatory> labolatory) {
-        Labolatory = labolatory;
+    public void setLabolatory(Labolatory labolatory) {
+        labolatory = labolatory;
     }
 
     @Override
@@ -72,7 +71,7 @@ public class Technician {
                 "technicianId=" + technicianId +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", Labolatory=" + Labolatory +
+                ", Labolatory=" + labolatory +
                 '}';
     }
 }

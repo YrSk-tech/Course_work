@@ -11,9 +11,9 @@ public class AnalysisType {
     private Integer analysisTypeId;
     @Column(name = "type")
     private String type;
-    @OneToOne(mappedBy = "analysis")
+    @OneToOne(mappedBy = "analysisType")
     private Analysis analysis;
-    @OneToOne(mappedBy = "analysis_type")
+    @OneToOne(mappedBy = "analysisType")
     private Labolatory labolatory;
 
     public AnalysisType(Integer analysisTypeId, String type) {

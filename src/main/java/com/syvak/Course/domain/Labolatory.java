@@ -1,6 +1,7 @@
 package com.syvak.Course.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "labolatory")
@@ -19,20 +20,24 @@ public class Labolatory {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "analysis_type_id", referencedColumnName = "analysis_type_id")
     private AnalysisType analysisType;
+    @OneToMany(mappedBy="labolatory")
+    private Set<Technician> technician;
 
-    public Labolatory(Integer labolatoryId, Integer labolatoryNumber, Clinic clinic, Analysis analysis, AnalysisType analysisType) {
+    public Labolatory(Integer labolatoryId, Integer labolatoryNumber, Clinic clinic, Analysis analysis, AnalysisType analysisType, Set<Technician> technician) {
         this.labolatoryId = labolatoryId;
         this.labolatoryNumber = labolatoryNumber;
         this.clinic = clinic;
         this.analysis = analysis;
         this.analysisType = analysisType;
+        this.technician = technician;
     }
 
-    public Labolatory(Integer labolatoryNumber, Clinic clinic, Analysis analysis, AnalysisType analysisType) {
+    public Labolatory(Integer labolatoryNumber, Clinic clinic, Analysis analysis, AnalysisType analysisType, Set<Technician> technician) {
         this.labolatoryNumber = labolatoryNumber;
         this.clinic = clinic;
         this.analysis = analysis;
         this.analysisType = analysisType;
+        this.technician = technician;
     }
 
     public Integer getLabolatoryId() {
@@ -69,6 +74,14 @@ public class Labolatory {
 
     public Labolatory(AnalysisType analysisType) {
         this.analysisType = analysisType;
+    }
+
+    public Set<Technician> getTechnician() {
+        return technician;
+    }
+
+    public void setTechnician(Set<Technician> technician) {
+        this.technician = technician;
     }
 
     @Override
