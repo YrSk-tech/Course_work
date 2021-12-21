@@ -1,0 +1,5 @@
+datasource:
+    url: jdbc:mysql://localhost/ClinicDB?useSSL=false&useUnicode=true&serverTimezone=UTC
+    username: root
+    password: user123
+    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `ClinicDB`.`labolatory` (
   `labolatory_number` INT NOT NULL,
   `clinic_id` INT NOT NULL,
   `analysis_type_id` INT NOT NULL,
-  `descriptions` VARCHAR(90),
+  `state` VARCHAR(90) NOT NULL,
   PRIMARY KEY (`labolatory_id`),
   INDEX `fk_labolatory_clinic_idx` (`clinic_id` ASC) VISIBLE,
   INDEX `fk_labolatory_analysis_type1_idx` (`analysis_type_id` ASC) VISIBLE)
@@ -151,13 +151,13 @@ INSERT INTO analysis_type(type)
     ('UZI'),
     ('tomograms');
 
-INSERT INTO labolatory(labolatory_number, clinic_id, analysis_type_id, descriptions)
-	VALUES(	'5',	'1',	'1', 'have a problems with intestine'),
-	( '25',	'3',	'2', 'he has problems with lungs' ),
-    ( '31',	'2',	'2', 'he has problem'),
-    ( '56',	'2',	'1', ' '),
-    ( '115', '2', '3', 'еееееееее'),
-    ( '205', '5',	'4','sdnspodnfspdfn');
+INSERT INTO labolatory(labolatory_id, labolatory_number, clinic_id, analysis_type_id, state)
+	VALUES(1,	5,	1,	1, 	'examined by a doctor'),
+	(2, 25,	3,	2,'sent for analysis'),
+    (3, 31,	2,	2,'made by a technician'),
+    (4, 56,	2,	1,'sent for analysis'),
+    (5, 115, 2, 3,'sent for analysis'),
+    (6, 205, 5,	4, 'examined by a doctor');
 INSERT INTO doctor(name, surname, clinic_name)
 	VALUES(	'Petro',	'Petrenko', 'Health'),
 	( 'Ivan',	'Rosh',	'Trinity Health and Wellness Medical Group'),
