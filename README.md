@@ -1,1 +1,2 @@
-Data base
+Database model and SQL code
+
