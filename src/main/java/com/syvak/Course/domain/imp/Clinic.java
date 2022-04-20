@@ -4,13 +4,14 @@ import com.syvak.Course.domain.AbstractModel;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "clinic", schema = "ClinicDB")
 public class Clinic implements AbstractModel {
     private Integer id;
     private String clinic_name;
-//    private Set<Labolatory> labolatory;
+    private Set<Labolatory> labolatory;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "clinic_id")
@@ -32,14 +33,14 @@ public class Clinic implements AbstractModel {
         this.clinic_name = clinic_name;
     }
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "clinic")
-//    public void setLabolatory(Set<Labolatory> labolatory) {
-//        this.labolatory = labolatory;
-//    }
-//
-//    public Set<Labolatory> getLabolatory() {
-//        return labolatory;
-//    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "clinic")
+    public void setLabolatory(Set<Labolatory> labolatory) {
+        this.labolatory = labolatory;
+    }
+
+    public Set<Labolatory> getLabolatory() {
+        return labolatory;
+    }
 
     @Override
     public boolean equals(Object o) {

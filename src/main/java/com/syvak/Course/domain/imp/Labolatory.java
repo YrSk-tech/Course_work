@@ -4,6 +4,7 @@ import com.syvak.Course.domain.AbstractModel;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "labolatory")
@@ -12,16 +13,16 @@ public class Labolatory implements AbstractModel {
     private Integer id;
 
     private Integer labolatoryNumber;
-//    @ManyToOne
-//    @JoinColumn(name="clinic_id", nullable=false)
-//    private Clinic clinic;
-//    @OneToOne(mappedBy = "labolatory")
-//    private Analysis analysis;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "analysis_type_id", referencedColumnName = "analysis_type_id")
-//       private AnalysisType analysisType;
-//    @OneToMany(mappedBy="labolatory")
-//    private Set<Technician> technician;
+    @ManyToOne
+    @JoinColumn(name="clinic_id", nullable=false)
+    private Clinic clinic;
+    @OneToOne(mappedBy = "labolatory")
+    private Analysis analysis;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "analysis_type_id", referencedColumnName = "analysis_type_id")
+       private AnalysisType analysisType;
+    @OneToMany(mappedBy="labolatory")
+    private Set<Technician> technician;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,33 +44,33 @@ public class Labolatory implements AbstractModel {
         this.labolatoryNumber = labolatoryNumber;
     }
 
-//    public Clinic getClinic() {
-//        return clinic;
-//    }
-//
-//    public void setClinic(Clinic clinic) {
-//        this.clinic = clinic;
-//    }
+    public Clinic getClinic() {
+        return clinic;
+    }
 
-//    public Analysis getAnalysis() {
-//        return analysis;
-//    }
-//
-//    public void setAnalysis(Analysis analysis) {
-//        this.analysis = analysis;
-//    }
-//
-//    public Labolatory(AnalysisType analysisType) {
-//        this.analysisType = analysisType;
-//    }
-//
-//    public Set<Technician> getTechnician() {
-//        return technician;
-//    }
-//
-//    public void setTechnician(Set<Technician> technician) {
-//        this.technician = technician;
-//    }
+    public void setClinic(Clinic clinic) {
+        this.clinic = clinic;
+    }
+
+    public Analysis getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(Analysis analysis) {
+        this.analysis = analysis;
+    }
+
+    public Labolatory(AnalysisType analysisType) {
+        this.analysisType = analysisType;
+    }
+
+    public Set<Technician> getTechnician() {
+        return technician;
+    }
+
+    public void setTechnician(Set<Technician> technician) {
+        this.technician = technician;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -89,9 +90,9 @@ public class Labolatory implements AbstractModel {
         return "Labolatory{" +
                 "labolatoryId=" + id +
                 ", labolatoryNumber=" + labolatoryNumber +
-//                ", clinic=" + clinic +
-//                ", analysis=" + analysis +
-//                ", analysisType=" + analysisType +
+                ", clinic=" + clinic +
+                ", analysis=" + analysis +
+                ", analysisType=" + analysisType +
                 '}';
     }
 }

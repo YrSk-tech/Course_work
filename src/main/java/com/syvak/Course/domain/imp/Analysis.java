@@ -10,15 +10,15 @@ import java.util.Objects;
 public class Analysis implements AbstractModel {
     private Integer id;
     private String state;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "labolatory_id", referencedColumnName = "labolatory_id")
-//    private Labolatory labolatory;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "analysis_type_id", referencedColumnName = "analysis_type_id")
-//    private  AnalysisType analysisType;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "patient_ssn", referencedColumnName = "patient_ssn")
-//    private Patient patient;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "labolatory_id", referencedColumnName = "labolatory_id")
+    private Labolatory labolatory;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "analysis_type_id", referencedColumnName = "analysis_type_id")
+    private  AnalysisType analysisType;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patient_ssn", referencedColumnName = "patient_ssn")
+    private Patient patient;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,29 +31,29 @@ public class Analysis implements AbstractModel {
         this.id = id;
     }
 
-//    public Labolatory getLabolatory() {
-//        return labolatory;
-//    }
-//
-//    public void setLabolatory(Labolatory labolatory) {
-//        this.labolatory = labolatory;
-//    }
-//
-//    public AnalysisType getAnalysisType() {
-//        return analysisType;
-//    }
-//
-//    public void setAnalysisType(AnalysisType analysisType) {
-//        this.analysisType = analysisType;
-//    }
-//
-//    public Patient getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Patient patient) {
-//        this.patient = patient;
-//    }
+    public Labolatory getLabolatory() {
+        return labolatory;
+    }
+
+    public void setLabolatory(Labolatory labolatory) {
+        this.labolatory = labolatory;
+    }
+
+    public AnalysisType getAnalysisType() {
+        return analysisType;
+    }
+
+    public void setAnalysisType(AnalysisType analysisType) {
+        this.analysisType = analysisType;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
     @Basic
     @Column(name = "state")
     public String getState() {
@@ -66,8 +66,8 @@ public class Analysis implements AbstractModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getState()
-//                 getLabolatory(), getAnalysisType(), getPatient()
+        return Objects.hash(getId(), getState(),
+                 getLabolatory(), getAnalysisType(), getPatient()
         );
     }
 
@@ -76,9 +76,9 @@ public class Analysis implements AbstractModel {
         return "Analysis{" +
                 "analysisId=" + id +
                 "state=" + state +
-//                ", labolatory=" + labolatory +
-//                ", analysistype=" + analysisType +
-//                ", patient=" + patient +
+                ", labolatory=" + labolatory +
+                ", analysistype=" + analysisType +
+                ", patient=" + patient +
                 '}';
     }
 }

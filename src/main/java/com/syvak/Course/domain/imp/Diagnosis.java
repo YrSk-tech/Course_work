@@ -12,7 +12,7 @@ public class Diagnosis implements AbstractModel {
 
     private String patientAnalysis;
 
-//    private Patient patient;
+    private Patient patient;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,16 +33,16 @@ public class Diagnosis implements AbstractModel {
     public void setPatientAnalysis(String patientAnalysis) {
         this.patientAnalysis = patientAnalysis;
     }
-    //    @OneToOne
-//    @MapsId
-//    @JoinColumn(name = "patient_ssn")
-//    public Patient getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Patient patient) {
-//        this.patient = patient;
-//    }
+        @OneToOne
+    @MapsId
+    @JoinColumn(name = "patient_ssn")
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -62,7 +62,7 @@ public class Diagnosis implements AbstractModel {
         return "Diagnosis{" +
                 "diagnosisId=" + id +
                 ", patientAnalysis='" + patientAnalysis + '\'' +
-//                ", patient=" + patient +
+                ", patient=" + patient +
                 '}';
     }
 }

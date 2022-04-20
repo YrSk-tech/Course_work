@@ -11,9 +11,9 @@ public class Technician implements AbstractModel {
     private Integer id;
     private String name;
     private String surname;
-//    @ManyToOne
-//    @JoinColumn(name="labolatory_id", nullable=false)
-//    private Labolatory labolatory;
+    @ManyToOne
+    @JoinColumn(name="labolatory_id", nullable=false)
+    private Labolatory labolatory;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,13 +44,13 @@ public class Technician implements AbstractModel {
         this.surname = surname;
     }
 
-//    public Labolatory getLabolatory() {
-//        return labolatory;
-//    }
-//
-//    public void setLabolatory(Labolatory labolatory) {
-//        labolatory = labolatory;
-//    }
+    public Labolatory getLabolatory() {
+        return labolatory;
+    }
+
+    public void setLabolatory(Labolatory labolatory) {
+        labolatory = labolatory;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -71,7 +71,7 @@ public class Technician implements AbstractModel {
                 "technicianId=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-//                ", Labolatory=" + labolatory +
+                ", Labolatory=" + labolatory +
                 '}';
     }
 }

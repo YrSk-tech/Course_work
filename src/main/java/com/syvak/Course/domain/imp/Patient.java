@@ -11,14 +11,14 @@ public class Patient implements AbstractModel {
     private Integer id;
     private String name;
     private String surname;
-//    @ManyToOne
-//    @JoinColumn(name="doctor_id", nullable=false)
-//    private Doctor doctor;
-//    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-//    @PrimaryKeyJoinColumn
-//    private Diagnosis diagnosis;
-//    @OneToOne(mappedBy = "patient")
-//    private Analysis analysis;
+    @ManyToOne
+    @JoinColumn(name="doctor_id", nullable=false)
+    private Doctor doctor;
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Diagnosis diagnosis;
+    @OneToOne(mappedBy = "patient")
+    private Analysis analysis;
 
     @Id
     @Column(name = "patient_ssn")
@@ -48,21 +48,21 @@ public class Patient implements AbstractModel {
         this.surname = surname;
     }
 
-//    public Doctor getDoctor() {
-//        return doctor;
-//    }
-//
-//    public void setDoctor(Doctor doctor) {
-//        this.doctor = doctor;
-//    }
-//
-//    public Diagnosis getDiagnosis() {
-//        return diagnosis;
-//    }
-//
-//    public void setDiagnosis(Diagnosis diagnosis) {
-//        this.diagnosis = diagnosis;
-//    }
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Diagnosis getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(Diagnosis diagnosis) {
+        this.diagnosis = diagnosis;
+    }
 
 
     @Override
@@ -84,8 +84,8 @@ public class Patient implements AbstractModel {
                 "patientSsnId=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-//                ", doctor=" + doctor +
-//                ", diagnosis=" + diagnosis +
+                ", doctor=" + doctor +
+                ", diagnosis=" + diagnosis +
                 '}';
     }
 

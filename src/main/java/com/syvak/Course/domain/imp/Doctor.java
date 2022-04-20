@@ -3,6 +3,7 @@ package com.syvak.Course.domain.imp;
 import com.syvak.Course.domain.AbstractModel;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "doctor")
@@ -11,8 +12,8 @@ public class Doctor implements AbstractModel {
     private String name;
     private String surname;
     private String clinicName;
-//    @OneToMany(mappedBy = "doctor")
-//    private Set<Patient> patient;
+    @OneToMany(mappedBy = "doctor")
+    private Set<Patient> patient;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,13 +53,13 @@ public class Doctor implements AbstractModel {
         this.clinicName = clinicName;
     }
 
-//    public Set<Patient> getPatient() {
-//        return patient;
-//    }
-//
-//    public void setPatient(Set<Patient> patient) {
-//        this.patient = patient;
-//    }
+    public Set<Patient> getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Set<Patient> patient) {
+        this.patient = patient;
+    }
 
     @Override
     public String toString() {

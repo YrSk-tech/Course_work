@@ -9,10 +9,10 @@ import javax.persistence.*;
 public class AnalysisType implements AbstractModel {
     private Integer id;
     private String type;
-//    @OneToOne(mappedBy = "analysisType")
-//    private Analysis analysis;
-//    @OneToOne(mappedBy = "analysisType")
-//    private Labolatory labolatory;
+    @OneToOne(mappedBy = "analysisType")
+    private Analysis analysis;
+    @OneToOne(mappedBy = "analysisType")
+    private Labolatory labolatory;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "analysis_type_id")
@@ -38,8 +38,8 @@ public class AnalysisType implements AbstractModel {
         return "AnalysisType{" +
                 "analysisTypeId=" + id +
                 ", type='" + type + '\'' +
-//                ", analysis=" + analysis +
-//                ", labolatory=" + labolatory +
+                ", analysis=" + analysis +
+                ", labolatory=" + labolatory +
                 '}';
     }
 }
