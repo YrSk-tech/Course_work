@@ -1,32 +1,7 @@
-Завдання
-Дана контрольна передбачає створення сайту  для запису на виконання флюрографії, рентгену, УЗІ, знімки на томографі - томограмми 
+This work creation of backend for a site to recorde the performance of fluorography, X-rays, ultrasound, tomography images - tomograms
 
-В системі присутні наступні елементи
-Елемент
-Опис
-Пацієнт
-Людина, що звернулась за медичною допомогою. Атрибути: ім'я, прізвище, ідентифікаційний номер (SSN)
-Лікар
-Також людина :). Проводить прийом пацієнтів. Атрибути: ім'я, прізвище, ідентифікаційний номер, назва клініки (ідентифікатор клініки у базі даних)
-Технік
-Виконує певні аналізи (рентген, узі). 
-Лабораторія
-Приміщення, де проводиться певний аналіз (зйомка рентгену, УЗІ). Атрибути: номер кабінету, тип досліджень. В одній лабораторії може працювати від 1-го до 3-ьох техніків.
-Тип аналізу
-Тип аналізу, що проводиться у лабораторії та доступні у системі: рентген, флюрографія, УЗІ, томограмми
-Аналіз (дослід)
-Аналіз, на який скеровує пацієнта лікар. Атрибути: тип аналізу, стан (створений, виконаний техніком, переглянутий лікарем, його автор (лікар), пацієнт, для якого треба провести аналіз. Аналіз створюється певним лікарем для певного пацієнта (Зв'язок один до одного)
-Клініка
-Обє'днує в собі лабораторії. Може містити від 1-ї до 10-ти лабораторій
-Діагноз
-Заключення лікаря щодо стану пацієнта на основі проведеного аналізу. Атрибути: аналіз (текстове поле), створюється певним лікарем для певного пацієнта (Зв'язок один до одного)
+Consists of 2 parts backend and data base
 
+The following elements are present in the system Element Description Patient The person who sought medical help. Attributes: name, surname, identification number (SSN) Doctor Also human :). Conducts reception of patients. Attributes: name, surname, identification number, name of the clinic (clinic ID in the database) Technician Performs certain tests (X-ray, ultrasound). Laboratory Premises where a certain analysis is performed (X-ray, ultrasound). Attributes: office number, type of research. From 1 to 3 technicians can work in one laboratory. Type of analysis Type of analysis performed in the laboratory and available in the system: X-ray, fluorography, ultrasound, tomograms Analysis (experiment) Analysis to which the patient is referred by a doctor. Attributes: type of analysis, condition (created, performed by a technician, reviewed by a physician, its author (physician), patient for whom the analysis is to be performed. It can contain from 1 to 10 laboratories.
 
-Функції продукту
-Лікар вводить інформацію про пацієнта в систему. При спробі ввести пацієнта з існуючим ідентифікаційним в системі лікар бачить на екрані помилку
-Лікар створює новий аналіз, вказуючи тип аналізу, пацієнта та лабораторію
-Технік бачить які аналізи записані на певну лабораторію, він може проводити аналізи лиш в лабораторії, в якій він працює
-Після проведення аналізу технік міняє стан аналізу на "виконаний техніком"
-Лікар може змвнити стан "виконаний техніком" на "переглянутий лікарем", при цьому він зобов'язаний ввести діагноз
-Додавання нових лікарів та техніків в систему.
-Система дозволяє додавати нову лабораторію. При додаванні лабораторії слід вказати, клініку, номер лабораторії, тип аналізів, які можна проводити в ній та вказати техніків, що працюють в даній лабораторії
+Product Functions The doctor enters patient information into the system. When trying to enter a patient with an existing ID in the system, the doctor sees an error on the screen. The doctor creates a new analysis, indicating the type of analysis, the patient and the laboratory. The technician changes the status of the analysis to "performed by a technician". The system allows you to add a new laboratory. When adding a laboratory, you should specify the clinic, laboratory number, type of tests that can be performed in it and specify the technicians working in this laboratory
